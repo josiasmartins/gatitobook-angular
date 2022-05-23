@@ -1,13 +1,20 @@
 <h4 class="text-center">Login</h4>
 <!-- ngSubmit: evento do FormModule -->
-<form class="form mt-4" (ngSubmit)="login()">
+<form class="form mt-4" (ngSubmit)="login()" #loginForm="ngForm">
   <div class="form-group">
+    <!-- #campoUsuario: variavel de referencia que pega a associação do ngModel -->
     <input
       class="form-control"
       placeholder="Name user's"
       [(ngModel)]="usuario"
       name="usuario"
+      #campoUsuario="ngModel"
+      required
     />
+    <app-mensagem
+      *ngIf="campoUsuario.invalid && campoUsuario.touched"
+      mensagem="Usuario obrigatório"
+      ></app-mensagem>
   </div>
 
   <div class="form-group">
@@ -17,8 +24,18 @@
       placeholder="senha"
       [(ngModel)]="senha"
       name="senha"
+      #campoSenha="ngModel"
+      required
     />
+    <app-mensagem
+      *ngIf="campoSenha.invalid && campoSenha.touched"
+      mensagem="senha obrigatória"
+    ></app-mensagem>
   </div>
 
-  <button type="submit" class="btn btn-primary btn-block">login</button>
+  <button
+    type="submit"
+    class="btn btn-primary btn-block"
+    [disabled]="loginForm.invalid"
+  >login</button>
 </form>
