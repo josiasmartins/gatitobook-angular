@@ -13,6 +13,10 @@ const routes: Routes = [
     // import: retorna uma promise
     loadChildren: () => import('./home/home.module')
       .then(m => m.HomeModule)
+  },
+  {
+    path: 'animais',
+    loadChildren: () => import('./animais/animais.module').then(m => m.AnimaisModule)
   }
 ];
 
