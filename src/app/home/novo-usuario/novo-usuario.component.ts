@@ -1,3 +1,4 @@
+import { UsuarioExisteService } from './usuario-existe.service';
 import { NovoUsuarioService } from './novo-usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -14,7 +15,8 @@ export class NovoUsuarioComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private novoUsuarioService: NovoUsuarioService
+    private novoUsuarioService: NovoUsuarioService,
+    private usuarioExistenteService: UsuarioExisteService
   ) { }
 
   ngOnInit(): void {
@@ -27,9 +29,8 @@ export class NovoUsuarioComponent implements OnInit {
         Validators.required,
         Validators.minLength(4)
       ]],
-      userName: ['', [
-        minusculoValidator
-      ]],
+      // na terceira posição do array, posso validação asyns
+      userName: ['', [minusculoValidator], [this.usuarioExistenteService.usuarioJaExiste()]],
       password: ['']
     });
   }
