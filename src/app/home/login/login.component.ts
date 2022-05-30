@@ -22,9 +22,9 @@ export class LoginComponent implements OnInit {
   login() {
     // suscribe: parecido com a then da promise
     // recebe dois parametros
-   this.authService.autenticar(this.usuario, this.usuario).subscribe(() => {
+   this.authService.autenticar(this.usuario, this.senha).subscribe(() => {
      this.router.navigate(['animais'])
-   }, error => {
+   }, (error) => {
      alert("Usuário ou senha inválido");
      console.log(error)
    })
