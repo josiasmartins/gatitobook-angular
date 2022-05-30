@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AutenticacaoService {
+export class AuthenticationService {
 
   /**
    * service
