@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NovoUsuario } from './novo-usuario';
 import { minusculoValidator } from './minusculo.validator'
+import { usuarioSenhaIguaisValidator } from './usuario-senha-iguais.validator';
 @Component({
   selector: 'app-novo-usuario',
   templateUrl: './novo-usuario.component.html',
@@ -32,7 +33,10 @@ export class NovoUsuarioComponent implements OnInit {
       // na terceira posição do array, posso validação asyns
       userName: ['', [minusculoValidator], [this.usuarioExistenteService.usuarioJaExiste()]],
       password: ['']
-    });
+    }, {
+      Validators: [usuarioSenhaIguaisValidator]
+    }
+    );
   }
 
   cadastrar() {

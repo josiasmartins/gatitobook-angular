@@ -36,6 +36,10 @@
 
   <div class="form-group">
     <input type="password" placeholder="Senha" class="form-control" formControlName="password">
+    <app-mensagem
+      *nfIf="novoUsuarioForm?.errors?.senhaIgualUsuario"
+      mensagem="Senha deve ser diferente do usuário"
+    ></app-mensagem>
   </div>
 
   <button class="btn btn-primary btn-block">Cadastrar</button>
