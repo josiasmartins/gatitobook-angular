@@ -1,9 +1,9 @@
 # Gatitobook
 
 ## demo
-![demo](././src/assets/)
+![demo](././src/assets/gatito-book-demo.gif)
 
-## back-end: [api-gatitobook](https://github.com/josiasmartins/api-gatitobook-nodeJs)
+## api do projeto: [api-gatitobook](https://github.com/josiasmartins/api-gatitobook-nodeJs)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.11.
 
